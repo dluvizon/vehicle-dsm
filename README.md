@@ -28,6 +28,7 @@ To download the dataset, do:
 ```
 
 <!--### About the subdir training-->
+<!--The training data for the SVM model is not going to be released.-->
 <!--Enter in 'training/icdar' and run the script 'run.sh'.-->
 
 
@@ -102,8 +103,8 @@ gst-plugins/src/.libs/ directory (best to specify an absolute path though).
 
 ## Known issues
 
-* For some unknown reason, the software crashes just after launched with a
-`SIGSEGV`.
+* For some unknown reason, sometimes the software crashes with a `SIGSEGV`
+  just after launched.
 
 
 ## License
