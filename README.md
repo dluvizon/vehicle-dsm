@@ -109,11 +109,11 @@ gst-plugins/src/.libs/ directory (best to specify an absolute path though).
 
 ## License
 
-This code is provided under a [MIT license](LICENSE), which basically means "do
+This code is provided under a [MIT license](LICENSE.md), which basically means "do
 with it as you wish, but don't blame us if it doesn't work". You can use this
 code for any project as you wish, under any license as you wish.  We recommend
 the use of the [LGPL license](COPYING.LIB) for applications and plugins, given
-the minefield of patents the multimedia is nowadays.  See the [Gstreamer
-website](http://gstreamer.freedesktop.org/documentation/licensing.html) for
-details.
+the minefield of patents the multimedia is nowadays.  See the
+[Gstreamer website](http://gstreamer.freedesktop.org/documentation/licensing.html)
+for details.
 
