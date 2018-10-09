@@ -1,6 +1,6 @@
 # Vehicle Detection and Speed Measurement System
 
-This software is provided ``as it is`` in additional to the paper
+This software is provided *as it is* in addition to the paper
 > A Video-Based System for Vehicle Speed Measurement in Urban Roadways
 .
 
@@ -16,10 +16,16 @@ For compiling the project, the following tools are *required*:
 * libgstreamer1.0-dev
 * libtesseract-dev
 * libleptonica-dev
-* gcc 5.5 **or lower**
+* gcc 5.5 (**or lower**)
 
 
 ## Dataset
+
+To download the dataset, do:
+```
+  cd dataset
+  bash download.sh
+``
 
 <!--### About the subdir training-->
 <!--Enter in 'training/icdar' and run the script 'run.sh'.-->
@@ -102,14 +108,11 @@ gst-plugins/src/.libs/ directory (best to specify an absolute path though).
 
 ## License
 
-This code is provided under a MIT license [1], which basically means "do
-with it as you wish, but don't blame us if it doesn't work". You can use
-this code for any project as you wish, under any license as you wish.
-We recommend the use of the LGPL [2] license for applications and plugins,
-given the minefield of patents the multimedia is nowadays.
-See the Gstreamer website for details [3].
-
-[1] http://www.opensource.org/licenses/mit-license.php or LICENSE
-[2] http://www.opensource.org/licenses/lgpl-license.php or COPYING.LIB
-[3] http://gstreamer.freedesktop.org/documentation/licensing.html
+This code is provided under a [MIT license](LICENSE), which basically means "do
+with it as you wish, but don't blame us if it doesn't work". You can use this
+code for any project as you wish, under any license as you wish.  We recommend
+the use of the [LGPL license](COPYING.LIB) for applications and plugins, given
+the minefield of patents the multimedia is nowadays.  See the [Gstreamer
+website](http://gstreamer.freedesktop.org/documentation/licensing.html) for
+details.
 
