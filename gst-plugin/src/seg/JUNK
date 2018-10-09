@@ -1,0 +1,110 @@
+/*---------------------------------------------*/
+/*---------------------------------------------*/
+unsigned char *find_regions (unsigned char *img, int nrows, int ncols) {
+
+   /*Toggle settings: */
+   int mask_size = 9;
+   int contrast = 18;
+   int percentage = 79;
+   /*-----------------*/
+
+   /*Geometric filtering settings: */
+   //double rmin = 3;
+   double rmin = 6;
+   double rmax = rmin*3;
+   double fmin = 0.1;
+
+   /*-----------------*/
+
+   /*Grouping settings: */
+   double t1 = 0.7;
+   double t2 = 1.0;
+   double t3 = 1.2;
+   /*-----------------*/
+
+   /*unsigned char *ori = read_pgm (argv[1], &nrows, &ncols);
+
+   int nnrows = nrows * sqrt(2);
+   int nncols = ncols * sqrt(2);
+
+   unsigned char *img = resize_gray_uchar_image_bilinear (ori, ncols, nrows, nncols, nnrows);
+   nrows = nnrows;
+   ncols = nncols;*/
+
+   unsigned char *inv = invert_image (img, nrows, ncols);
+
+   int size = nrows * ncols;
+
+   unsigned char *nmin = (unsigned char *)malloc(size * sizeof(char));
+   unsigned char *nmax = (unsigned char *)malloc(size * sizeof(char));
+   unsigned char *imin = (unsigned char *)malloc(size * sizeof(char));
+   unsigned char *imax = (unsigned char *)malloc(size * sizeof(char));
+   unsigned char *nseg = (unsigned char *)malloc(size * sizeof(char));
+   unsigned char *iseg = (unsigned char *)malloc(size * sizeof(char));
+
+   min_max (img, nmin, nmax, inv, imin, imax, ncols, nrows, mask_size);   
+
+   toggle (img, nmin, nmax, nseg, inv, imin, imax, iseg, ncols, nrows, mask_size, contrast, percentage);
+
+   //write_uchar_to_pgm (argv[2], nseg, nrows, ncols);
+
+   Vector ncc = find_connected_components (nseg, nrows, ncols, rmin, rmax, fmin); /*List of conected components.*/
+   
+   Vector icc = find_connected_components (iseg, nrows, ncols, rmin, rmax, fmin); /*List of conected components.*/
+
+   //write_regions_to_uchar (argv[3], img, nrows, ncols, icc);
+
+   int nsets, isets;
+   Vector** nchains = make_chains (ncc, t1, t2, t3, &nsets);
+   Vector** ichains = make_chains (icc, t1, t2, t3, &isets);
+   
+   Vector** ochains = merge_chains (nchains, nsets, ichains, isets);
+
+   thog_filter (img, nrows, ncols, ochains, nsets+isets);
+
+   unsigned char *regions = return_chains_to_uchar_image (img, nrows, ncols, ochains, nsets+isets);
+
+   free(inv);
+   free(iseg); free(nseg);
+   free(nmin); free(nmax);
+   free(imin); free(imax);
+   /*Desalocar regions nchains ichains etc*/
+
+   return regions;
+}
+ 
+
+
+/* */
+/*int main (int argc, char *argv[]) {
+
+   //Toggle settings: 
+   int mask_size = 6;
+   int contrast = 24;
+   int percentage = 69;
+
+   if (argc < 3) { printf("use: %s in.pgm (ascii) out.pgm\n", argv[0]); exit(1); }
+
+   int nrows, ncols;
+
+   unsigned char *img = read_pgm (argv[1], &nrows, &ncols);
+
+   int size = nrows * ncols;
+
+   unsigned char *min = (unsigned char *)malloc(size * sizeof(char));
+   
+   unsigned char *max = (unsigned char *)malloc(size * sizeof(char));
+
+   min_max (img, min, max, ncols, nrows, mask_size);   
+
+   unsigned char *seg = toggle (img, min, max, ncols, nrows, mask_size, contrast, percentage);
+
+   write_uchar_to_pgm (argv[2], seg, nrows, ncols);
+
+   free(min);
+   free(max);
+   free(seg);
+   free(img);
+
+   return 0;
+} */

@@ -1,0 +1,39 @@
+# generated binary files
+*.o
+*.lo
+*.a
+*.la
+*.so
+*.libs
+
+# dependency tracking
+*.deps
+
+# files possible from autotools
+*.dirstamp
+
+# swap files from vim
+*.swp
+
+# generated scripts
+configure
+
+# config generic files
+config.*
+config
+
+# files from autogen.sh
+aclocal.m4
+m4
+autom4te.cache
+libtool
+lwcv.pc
+stamp-h1
+
+# generated makefiles
+Makefile
+Makefile.in
+
+# tags file
+tags
+

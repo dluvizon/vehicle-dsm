@@ -1,0 +1,6 @@
+saida
+*.pyc
+analyzeLog
+computeFinalResult
+cvplayer
+speed-hist.eps

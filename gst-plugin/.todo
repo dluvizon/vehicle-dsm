@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<todo version="0.1.20">
+    <title>
+        TODO list for project gst-vehicle-dsm
+      _
+    </title>
+    <note priority="veryhigh" time="1416593616" done="1416856868">
+        &lt;&lt; CvPlayer &gt;&gt; Ground truth generator
+        <comment>
+            Done
+        </comment>
+        <note priority="veryhigh" time="1416593708" done="1416698319">
+            Adicionar uma flag para motos
+            <comment>
+                Done
+            </comment>
+        </note>
+        <note priority="veryhigh" time="1416685827" done="1416744110">
+            Melhorar o esquema de interrupção de eventos do mouse
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="high" time="1416593657" done="1416697387">
+            Adicionar linhas horizontais para delimitar a área onde a placa deve ficar
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="high" time="1416695997" done="1416744129">
+            Fazer a leitura do arquivo vehicles.xml para continuar a partir do ponto de onde parou
+            <comment>
+                Feito
+            </comment>
+        </note>
+    </note>
+    <note priority="medium" time="1415037197" done="1415114047">
+        &lt;&lt; Debug &gt;&gt; Implementar funções para pintar a crominância do NV12
+        <comment>
+            Feito
+        </comment>
+    </note>
+    <note priority="veryhigh" time="1414787531">
+        &lt;&lt; Groundtruth &gt;&gt;
+        <note priority="veryhigh" time="1414787584" done="1414944148">
+            (Re)Integrar o módulo groundtruth ao software
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="veryhigh" time="1416316189" done="1416825594">
+            Utilizar as informações do arquivo vehicles.xml no lugar da detecção de placas
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="high" time="1414944180" done="1415148848">
+            Utilizar o groundtruth para estimar o desempenho da subtração de fundo
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="high" time="1416316222">
+            Calcular o desempenho do detector de placas a partir do vechiles.xml
+        </note>
+    </note>
+    <note priority="veryhigh" time="1416831436">
+        &lt;&lt; Results &gt;&gt;
+        <note priority="veryhigh" time="1416831528" done="1416856895">
+            Adicionar aos resultados o número total de placas, número total de veículos (sem placas)
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="veryhigh" time="1416831611" done="1416856902">
+            Para cada veículo, indicar se está acima, dentro ou abaixo do erro necessário
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="veryhigh" time="1416856946" done="1416941803">
+            Computar os resultados com e sem flagPlate e flagSema
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="high" time="1417167568">
+            Salval uma imagem JPEG para cada frame em que o erro ficou superior a 2km/h ou inferior a 3km/h
+        </note>
+        <note priority="medium" time="1416831663">
+            Verificar se, para todas as placas encontradas, há um retângulo de subtração de fundo correspondente
+        </note>
+        <note priority="medium" time="1417167626">
+            Gerar os resultados para os 16 vídeos
+        </note>
+    </note>
+    <note priority="medium" time="1414415308">
+        &lt;&lt; Background Subtraction &gt;&gt;
+        <note priority="veryhigh" time="1414416700" done="1414787467">
+            Finalizar a implementação do módulo backgroundsub e traçar a linha final nas imagens de debug
+            <comment>
+                Quase pronto, faltam alguns detalhes especificados em outros todos
+            </comment>
+        </note>
+        <note priority="veryhigh" time="1414587795" done="1414787428">
+            Gerar os slopes a partir da curva de profiles
+            <comment>
+                Feito com vector&lt;&gt;
+            </comment>
+        </note>
+        <note priority="high" time="1414416671" done="1414548884">
+            Desenhar o retângulo de diferença da subtração de fundo nas imagens de log
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="high" time="1414523318" done="1414787447">
+            Implementar uma struct retângulo a partir de x/y min/max
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="high" time="1414787619" done="1415148838">
+            Comparar os slopes encontrados com o groundtruth e gerar resultados
+            <comment>
+                Feito
+            </comment>
+        </note>
+        <note priority="medium" time="1416316288">
+            Verificar se todas as placas do vehicles.xml foram indicadas na subtração de fundo
+        </note>
+    </note>
+    <note priority="low" time="1414903846">
+        &lt;&lt; Coding &gt;&gt;
+        <note priority="verylow" time="1416593968">
+            Separar a implementação em C/C++
+        </note>
+    </note>
+</todo>
