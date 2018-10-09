@@ -15,7 +15,7 @@
 
 /* set default debug state if not defined */
 #ifndef _DLEVEL
-#define _DLEVEL 1
+#define _DLEVEL 2
 #endif
 
 #include <sys/timeb.h>

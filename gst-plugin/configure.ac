@@ -175,7 +175,7 @@ AH_BOTTOM([
 #define GTRUTH_MAX_LANES 3
 
 /* By default, enable debug in verbose level */
-#define VDSM_DLEVEL 1
+#define VDSM_DLEVEL 2
 
 /**
  * Enable or disable the debug for each module here:

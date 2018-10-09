@@ -1157,7 +1157,7 @@ void *vs_preload(struct dsm_common_data *cd, int width, int height)
 	vs->object_counter = 0;
 	cd->timestamp = 0.0;
 
-	snprintf(fname, sizeof(fname), "%s/../matrix.txt", cd->output_path);
+	snprintf(fname, sizeof(fname), "%s/../../matrix.txt", cd->output_path);
 	ret = load_ipm_matrix_from_file(fname);
 	if (ret) {
 		exit(-1);
@@ -1168,7 +1168,7 @@ void *vs_preload(struct dsm_common_data *cd, int width, int height)
 
 	vs->vt = gtruth_vehicles_new(cd->vehicles_xml);
 
-	snprintf(fname, sizeof(fname), "%s/../lanes.xml", cd->output_path);
+	snprintf(fname, sizeof(fname), "%s/../../lanes.xml", cd->output_path);
 	ret = vs_set_lanes_area(vs->lanes.area, fname);
 	if (-1 == ret) {
 		exit(-1);
@@ -2183,15 +2183,16 @@ void vs_chain_callback(struct dsm_common_data *cd, void *_data)
 	decolorize(roimg, width, height);
 
 	print_timestamp("frame " cterm(TB_WHT, "%d\n"), cd->iframe);
+	/*
 	if (cd->iframe < 430) {
 		return;
 	}
+	*/
 
 	fdebug = (unsigned char *) malloc(width * height * 1.5);
 	memcpy(fdebug, roimg, width * height * 1.5);
 
-	//plates_gt = read_plates_from_xml(vs->vt, cd->iframe);
-
+	plates_gt = read_plates_from_xml(vs->vt, cd->iframe);
 	if (vs->vt && (cd->iframe > vs->vt->size)) {
 		print_warn("Reached end of ground truth file in frame %d\n",
 				cd->iframe);
@@ -2228,7 +2229,7 @@ void vs_chain_callback(struct dsm_common_data *cd, void *_data)
 			sub->hprof.profile[k] = 0;
 		}
 	}
-	//sub_paint_debug(sub, fdebug, slopes);
+	sub_paint_debug(sub, fdebug, slopes);
 	/* Remove slopes with flag search_plate = false. */
 	for (k = 0; k < slopes.size();) {
 		if (!slopes.at(k).search_plate) {
@@ -2237,6 +2238,7 @@ void vs_chain_callback(struct dsm_common_data *cd, void *_data)
 			k++;
 		}
 	}
+
 	if (slopes.size() > 0) {
 		vector<plate> plates;
 #if 0
@@ -2335,18 +2337,18 @@ void vs_chain_callback(struct dsm_common_data *cd, void *_data)
 		*/
 		plates.clear();
 	}
-	compute_features_from_plates(plates_gt, vs->features_gt, vs, cd, true);
+	//compute_features_from_plates(plates_gt, vs->features_gt, vs, cd, true);
 	//dsm_paint_plates(roimg, width, height, plates_gt, 0, 255);
 
 	debug_print_guess_moto_stat(slopes, vs->features_gt);
 
-	//vs_print_vehicle_plates(roimg, vs, cd->iframe, 5);
+	vs_print_vehicle_plates(roimg, vs, cd->iframe, 5);
 	vs_unnecessary_remove_features(vs->features);
 	vs_unnecessary_remove_features(vs->features_gt);
 
 	print_tab(DBG_CALL, "Process features list\n");
 	process_feature_list(vs->features, vs->tc, vs, cd,
-			"detection", true, 255, fdebug);
+			"detection", true, 255, roimg);
 	process_feature_list(vs->features_gt, vs->tc_gt, vs, cd,
 			"groundtruth", true, 0, fdebug);
 	print_tab(DBG_EXIT, "Process features list\n");
@@ -2362,7 +2364,8 @@ void vs_chain_callback(struct dsm_common_data *cd, void *_data)
 	}
 	*/
 	process_show_speed(sspeed, vs->features, cd->iframe);
-	print_vehicles_speed(fdebug, width, height, sspeed);
+	print_vehicles_speed(roimg, width, height, sspeed);
+	/*
 	write_nv12_to_jpeg(fdebug, width, height, "/tmp/fdebug/%05d.jpeg",
 			cd->iframe + shift_iframe);
 	while (hold_slope--) {
@@ -2371,6 +2374,7 @@ void vs_chain_callback(struct dsm_common_data *cd, void *_data)
 				"/tmp/fdebug/%05d.jpeg",
 				cd->iframe + shift_iframe);
 	}
+	*/
 	free(fdebug);
 
 	/* Paint the chrominance from image, if enabled. */

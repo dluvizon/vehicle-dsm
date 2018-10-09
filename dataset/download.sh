@@ -14,6 +14,6 @@ do
   wget http://www.dainf.ct.utfpr.edu.br/~rminetto/projects/vehicle-speed/dataset/Set0${s}_video01.h264
   mv Set0${s}_video01.h264 ${setdir}/video.h264
   wget http://www.dainf.ct.utfpr.edu.br/~rminetto/projects/vehicle-speed/dataset/Set0${s}_video01.xml
-  mv Set01_video0${s}.xml ${setdir}/ground-truth.xml
+  mv Set01_video0${s}.xml ${setdir}/vehicles.xml
 done
 

@@ -12,7 +12,7 @@ fi
 #         display: run with realtime video output
 #         store:   run and generate one jpeg for each frame
 #-----------------------------------------------------------------------------
-opt=store
+opt=display
 
 REBUILD="no"
 
