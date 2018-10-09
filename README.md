@@ -25,7 +25,7 @@ To download the dataset, do:
 ```
   cd dataset
   bash download.sh
-``
+```
 
 <!--### About the subdir training-->
 <!--Enter in 'training/icdar' and run the script 'run.sh'.-->
