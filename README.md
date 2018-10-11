@@ -4,7 +4,7 @@ This software is provided *as it is* in addition to the paper
 > A Video-Based System for Vehicle Speed Measurement in Urban Roadways
 .
 
-![Overview](images/system.jpg)
+[![Overview](images/system.jpg)](https://www.youtube.com/watch?v=3IaKJuZN55k&t=11s)
 
 
 ## Dependencies
