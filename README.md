@@ -21,11 +21,12 @@ For compiling the project, the following tools are *required*:
 
 ## Dataset
 
-Part 1 (subset 1,2a): [https://drive.google.com/drive/folders/1xXgMhjpMUT-S7_-3BGwfiD4G2MvR9tKO](Google Drive)
+Part 1 (subset 1,2a): [Google Drive](https://drive.google.com/drive/folders/1xXgMhjpMUT-S7_-3BGwfiD4G2MvR9tKO)
 
-Part 2 (subset 2b): [https://drive.google.com/drive/folders/1wCEzHvO8D_bbxqxbr8U2KlK0VZZwW58P](Google Drive)
+Part 2 (subset 2b): [Google Drive](https://drive.google.com/drive/folders/1wCEzHvO8D_bbxqxbr8U2KlK0VZZwW58P)
 
-Part 3 (subset 3,4,5): [https://drive.google.com/drive/folders/1mhHoKTX2Z6RQYCGxaWRT_W_gf-qGwJOZ](Google Drive)
+Part 3 (subset 3,4,5): [Google Drive](https://drive.google.com/drive/folders/1mhHoKTX2Z6RQYCGxaWRT_W_gf-qGwJOZ)
+
 
 <!--### About the subdir training-->
 <!--The training data for the SVM model is not going to be released.-->
